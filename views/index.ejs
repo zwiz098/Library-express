@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Book Log</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main>
+    <h1>Library</h1>
+    <h2> Welcome to your Book Log! Keep Track of what you've read!</h2>
+
+
+    <h3>Books</h3>
+    <ul class="messages">
+      <% for(var i=0; i<library.length; i++) {%>
+      <li class="message">
+        <span><%= library[i].title %></span>
+        <span><%= library[i].author %></span>
+        <% if (library[i].done === true) {%>
+        <button data-value="<%= library[i]._id %>" class="start">Read</button>
+        <%} else{%>
+        <button data-value="<%= library[i]._id %>" class="done">Read</button>
+        <% } %>
+
+      </li>
+      <% } %>
+
+    </ul>
+
+    <h2>What books have you read</h2>
+
+    <form>
+      <input type="text" placeholder="title" name="title">
+      <input type="text" placeholder="author" name="author">
+      <button class="submit" type="submit">Submit</button>
+    </form>
+
+  </main>
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>
